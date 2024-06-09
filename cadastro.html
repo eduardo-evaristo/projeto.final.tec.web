@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Formulário de inserção de produto-->
+    <form action="#" id="formulario">
+
+        <h1>Insira as informações do produto:</h1>
+
+        <label for="cod-produto">Código:</label>
+        <input id="cod-produto" type="text" readonly>
+
+        <label for="nome-produto">Nome:</label>
+        <input id="nome-produto" type="text" required>
+
+        <!--Select c opções pra tipo de unidade-->
+        <label for="unidade">Unidade:</label>
+        <select name="unidade" id="unidade">
+            <option value="un">un - Unidade</option>
+            <option value="kg">kg - Quilograma</option>
+            <option value="lt">lt - Litro</option>
+            <option value="mt">mt - Metro</option>
+            <option value="pc">pc - Pacote</option>
+        </select>
+
+        <label for="quantidade">Quantidade</label>
+        <input id="quantidade" type="text" required>
+        <!--Esse input não está type="number" para permitir valores como 0.5, mas ele está sendo convertido em number no código JS-->
+
+        <label for="cod-barra">Cód. de barras</label>
+        <input id="cod-barra" type="text" maxlength="13">
+
+        <!--Select c opções pra situação (ativo/n ativo)-->
+        <label for="situacao">Situação:</label>
+        <select name="situacao" id="situacao" required>
+            <option value="1">Ativo</option>
+            <option value="">Não-ativo</option>
+        </select>
+
+        <button type="submit">Adicionar item</button>
+
+    </form>
+
+    <table id="lista" border="1"> 
+        <thead>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Unidade</th>
+            <th>Quantidade</th>
+            <th>Cód de Barra</th>
+            <th>Situação</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </thead>
+        <tbody id="corpoLista">
+        </tbody>
+    </table>
+    
+    <script src="cadastro.js"></script>
+</body>
+</html>
