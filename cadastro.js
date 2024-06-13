@@ -1,3 +1,5 @@
+
+
 //Seleção de elementos DOM
 //Elemento DOM do formulário
 const formulario = document.getElementById("formulario");
@@ -60,6 +62,11 @@ formulario.addEventListener("submit", function(event) {
     //Não deixa o form dar refresh
     event.preventDefault();
 
+    //chama a funcao pra verificar se os campos obrigatórios foram preenchidos
+    if(!verificarCamposObrigatorios()){
+        return;
+    }
+
     //Salva produto
     salvarProduto();
 
@@ -72,6 +79,43 @@ formulario.addEventListener("submit", function(event) {
     //Carrega lista com novo item adicionado
     carregarLista();
 })
+
+//funcao que verifica se os campos obrigatórios foram informados
+function verificarCamposObrigatorios(){
+    let camposValidos = true;
+
+    if(!nomeProduto.value){
+        nomeProduto.classList.add('required-field');
+        nomeProduto.placeholder = 'Campo Obrigatório';
+        camposValidos = false;
+    }
+    else{
+        nomeProduto.classList.remove('required-field');
+        nomeProduto.placeholder = 'Nome do produto';
+    }
+
+    if(!unidade.value){
+        unidade.classList.add('required-field');
+        unidade.placeholder = 'Campo obrigatório';
+        camposValidos = false;
+    }
+    else{
+        unidade.classList.remove('required-field');
+        unidade.placeholder = 'Unidade';
+    }
+
+    if(!quantidade.value){
+        quantidade.classList.add('required-field');
+        quantidade.placeholder = 'Campo obrigatório';
+        camposValidos = false;
+    }
+    else{
+        quantidade.classList.remove('required-field');
+        quantidade.placeholder = 'Quantidade';
+    }
+
+    return camposValidos;
+}
 
 function salvarProduto() {
     //Obtém índice de objeto de produto se ele existir, -1 se não existir

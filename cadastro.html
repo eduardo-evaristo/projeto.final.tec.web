@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Página Cadastro</title>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <!--Formulário de inserção de produto-->
-    <form action="#" id="formulario">
+    <form action="#" id="formulario">       
 
-        <h1>Insira as informações do produto:</h1>
+        <h1>Página de Cadastro de itens</h1>
+        <h3>Insira as informações de cadastro:</h3>
 
         <label for="cod-produto">Código:</label>
         <input id="cod-produto" type="text" readonly>
@@ -42,8 +44,11 @@
         </select>
 
         <button type="submit">Adicionar item</button>
+        
 
     </form>
+    <!-- abaixo link para a página de lista -->
+    <a href="lista.html" >Ir para Lista de Produtos <icon>&#x2BAB</icon></a>
 
     <table id="lista" border="1"> 
         <thead>
